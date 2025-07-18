@@ -261,17 +261,6 @@ void PlayerTaxi::InitTaxiNodesForLevel(uint32 race, uint32 chrClass, uint8 level
                 if (node->MountCreatureID[index] > 0)
                     if (sMapMgr->IsValidMapCoord(node->map_id, node->x, node->y, node->z))
                     {
-                        /*
-                        if (auto area = sMapMgr->GetZoneId(node->map_id, node->x, node->y, node->z))
-                        {
-                            auto area_level = Map::GetLevelForArea(area);
-
-                            if (area_level != node_level)
-                                TC_LOG_ERROR("sql.sql", "(first) taxi node %u zone %u has level requirement of %u, %u", i, area, node_level, area_level);
-
-                            if (uint32(level) >= area_level)
-                        }
-                        */
                         auto node_level = sMapMgr->GetTaxiNodeLevel(i);
                         if (level >= uint8(node_level))
                             SetTaximaskNode(i);
